@@ -34,4 +34,57 @@ print(5404319552844595/18014398509481984)
 print(Fraction(3, 10))
 print("-------------------------------")
 
+# Float Equality Testing
+x = 0.1 + 0.1 + 0.1
+y = 0.3
+print("Is 0.1 + 0.1 + 0.1 is same as 0.3 in Python: {}, x is {}, y is {}".format(x == y, x, y))
+print(0.31/3)
+print("-------------------------------")
+
+# Rounding
+x = 1.23
+print(round(x, 0))
+print("-------------------------------")
+
+# Decimals
+import decimal
+from decimal import Decimal
+
+# print(decimal.getcontext())
+# decimal.getcontext().prec = 5
+# print(decimal.getcontext())
+# decimal.getcontext().rounding = decimal.ROUND_HALF_UP
+# print(decimal.getcontext())
+with decimal.localcontext() as ctx:
+    ctx.prec = 28
+    ctx.rounding = decimal.ROUND_CEILING
+    print(ctx)
+    print(Decimal(10))
+    print(Decimal('10.1'))
+    t = (0, (4, 8, 4, 5, 8, 5, 6), -6)
+    print(Decimal(t))
+    # x, y, z = Decimal('0.1'), Decimal('0.1'), Decimal('0.1')
+    # print(0.1 + 0.1 + 0.1)
+    # print(x+y+z)
+    def bunch_of_calc(a, b):
+        x = a
+        x_dec = Decimal(b)
+        root_float, root_mixed, root_dec = math.sqrt(x), math.sqrt(x_dec), x_dec.sqrt()
+        print(format(root_float, '1.27f'), format(root_float * root_float, '1.27f'))
+        print(format(root_mixed, '1.27f'), format(root_mixed * root_mixed, '1.27f'))
+        print(root_dec, root_dec * root_dec)
+
+
+    bunch_of_calc(2, '2')
+    bunch_of_calc(0.01, '0.01')
+print("-------------------------------")
+
+# Complex
+import cmath
+a = complex(1, 2)
+print(a, a.real, a.imag, a.conjugate(), a ** 2, cmath.sqrt(a))
+print(cmath.exp(complex(0, cmath.pi)) + 1)
+
+
+
 
